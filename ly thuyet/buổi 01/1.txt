@@ -1,0 +1,34 @@
+Tư duy với AI:
+tư duy phản biện, tư duy hệ thống, 
+tư duy máy tính, computional thinking -> abstraction, automation, 
+
+ba nhóm ai chính
+đi từ trái qua phải thì khả năng tiếp cận trở nên dễ dàng hơn
+adoption barrier gets lower
+
+2024-2026 bước ngoặt
+
+llm đến ai agent
+thành phần của AI Agent
+hạn chế của công thức 
+agent = goal + reasoning + tool + memory + action
+1, mục tiêu không rõ ràng -> xử lý sai
+2, tràn bộ nhớ mã nguồn cũ -> không sửa được
+
+embedding chỉ mang danh tính không mang tọa độ, đặc trưng cho nội dung
+không chỉ ra vị trí.
+
+self attention = tính điểm cho mỗi cặp từ
+key, query, value tương đương bảng băm
+
+chia cho số chiều để giảm độ lớn, -> ổn định hơn
+khi chạy qua nhiều tầng
+
+vinsmartfuture: finetuning, engineering
+-> cần hiểu về nghiệp vụ
+
+
+
+
+
+
