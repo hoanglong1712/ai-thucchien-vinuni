@@ -1,0 +1,29 @@
+khi nào mô tả chi tiết thì tốt hơn, khi nào mô tả đơn giản sẽ tốt hơn
+
+thay đổi phương pháp tiếp cận từ
+prompt engineering, context engineering, hardness engineering "hiện tại"
+
+trang 8
+zero shot: task
+one shot: task + context
+few shot: đa dạng ví dụ
+CoT: chuỗi suy nghĩ
+
+kinh nghiệm thiết kế phần mềm
+https://docs.bmad-method.org/
+
+cần liệt kê những thứ cần làm, không nên liệt kê những thứ không nên làm
+lưu ý khi sử dụng chat completions: role, task, context, format
+context sẽ thay đổi, tăng dần lên
+thêm structure output, để sửa thông tin trong agent
+
+mô hình gpt-5.4-nano giá rẻ, hiệu quả
+
+cấu trúc 
+persona, tool, rule, format,  constraint
+dùng cho system_promt để cố định vai trò role trong langchain, dùng trong truy vấn nhiều lần CoT
+để ổn định chuỗi truy vấn
+
+thứ tự 5 cấu trúc trên rất quan trọng, 
+AI có xu hướng chỉ xử lý những điều khẳng định, không xử lý phủ định do không xử lý được từ không 
+
