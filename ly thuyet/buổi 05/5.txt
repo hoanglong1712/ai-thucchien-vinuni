@@ -1,0 +1,31 @@
+slide v2 phản hồi và kinh tế trí tuệ nhân tạo
+trang 41:
+cân bằng hoặc chú trọng 1 trong 3 yếu tố: cost, capability, speed
+
+telegram botfather = chatbot
+
+workshop
+AI agent khác chatbot thế nào
+agent = llm + tool + loop
+https://excalidraw.com/
+
+thực tế agent có 
+tools, MCP server -> tools
+agent skills = file markdown
+chứa
+------
+name:
+description: use this skill when creating  stunning landing page
+
+Bước 1:
+Bước 2:
+
+-----
+
+-> script, reference
+
+LLM luôn thông minh hơn mình
+nếu có quá nhiều tools -> có 1 thứ goi là "tool search tool"
+
+harness engineering
+
