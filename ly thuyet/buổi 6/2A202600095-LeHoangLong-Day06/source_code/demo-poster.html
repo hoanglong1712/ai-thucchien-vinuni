@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VinFast AI Consultant - Demo Poster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #004D99;
+            /* VinFast Blue */
+            --accent: #E8F1FF;
+            --text-light: #ffffff;
+            --text-dark: #1a1a1a;
+            --bg-dark: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            width: 1920px;
+            /* Force 16:9 4K-ish for print/slides */
+            height: 1080px;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        /* Hero Background Image */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: url('vinfast_chatbot_hero.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            mask-image: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            z-index: 0;
+        }
+
+        /* Header */
+        header {
+            z-index: 10;
+            margin-bottom: 40px;
+        }
+
+        .team-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--primary);
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 5rem;
+            line-height: 1;
+            font-weight: 900;
+            background: linear-gradient(to right, #ffffff, #888888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            max-width: 800px;
+        }
+
+        /* Main Content Grid */
+        main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            z-index: 10;
+            flex-grow: 1;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        p,
+        li {
+            font-size: 1.6rem;
+            line-height: 1.4;
+            color: #cccccc;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* Specific Sections */
+        .problem-solution {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .vs-tag {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff3333;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: auto;
+        }
+
+        .metric {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .metric-val {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffffff;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: #888888;
+        }
+
+        /* QR SECTION */
+        .qr-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .bot-link {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            background: #ffffff;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Printing / Slides optimization */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .hero-bg {
+                opacity: 0.2;
+            }
+
+            h1 {
+                -webkit-text-fill-color: black;
+            }
+
+            .card {
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+            }
+
+            p,
+            li {
+                color: #333;
+            }
+
+            .bot-link {
+                color: var(--primary);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="hero-bg"></div>
+
+        <header>
+            <div class="team-badge">Nhóm 11 Phòng E402</div>
+            <h1>Trợ lý ảo VinFast:<br>Ứng dụng công nghệ trí tuệ nhân tạo</h1>
+        </header>
+
+        <main>
+            <!-- SECTION 1: PROBLEM & SOLUTION -->
+            <div class="card">
+                <h2><span>🚨</span> Bài toán & Giải pháp</h2>
+                <div class="problem-solution">
+                    <p><span class="highlight">Giai đoạn "Đóng băng":</span> Khách hàng phân vân giá, bị hãng đối thủ
+                        (Tesla, BYD) thu hút. Nhân viên bán hàng không trực 24/7.</p>
+                    <div class="vs-tag">VS</div>
+                    <p><span class="highlight">Trợ lý ảo:</span> Tra cứu giá thực tế qua tìm kiếm trực tuyến, khéo léo
+                        "Lái
+                        chủ đề" (Pivot) về VinFast, chốt đơn ngay lập tức.</p>
+                </div>
+            </div>
+
+            <!-- SECTION 2: AI REASONING -->
+            <div class="card">
+                <h2><span>🤖</span> Tư duy sản phẩm trí tuệ nhân tạo</h2>
+                <p><span class="highlight">Augmentation (Tính năng hỗ trợ người dùng):</span>
+                    Trí tuệ nhân tạo không thay thế con người, Trí tuệ nhân tạo là phễu lọc
+                    thông minh để nhân viên bán hàng tập trung "chốt đơn".</p>
+                <div style="margin-top: 20px;">
+                    <p class="highlight" style="font-size: 1.4rem;">Luồng xử lý mẫu:</p>
+                    <ul style="margin-left: 30px;">
+                        <li>Người dùng hỏi xe đối thủ → Trí tuệ nhân tạo định hướng câu chuyện về VinFast</li>
+                        <li>Người dùng hỏi giá thực tế → Trí tuệ nhân tạo tìm kiếm thông tin thực tế</li>
+                        <li>Người dùng muốn mua → Trí tuệ nhân tạo chuyển giao tác sang nhân viên bán hàng</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION 3: IMPACT -->
+            <div class="card" style="grid-column: span 2;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div>
+                        <h2><span>📈</span> Ảnh hưởng (Impact)</h2>
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <span class="metric-val">100%</span>
+                                <span class="metric-label">Phản hồi 24/7</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-val">-85%</span>
+                                <span class="metric-label">Thời gian tư vấn</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-val">+15%</span>
+                                <span class="metric-label">Chất lượng bán hàng</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qr-section">
+                        <div style="text-align: right;">
+                            <p style="font-size: 1.2rem; margin-bottom: 5px;">THỬ NGAY TẠI</p>
+                            <a href="https://t.me/buoi_6_bot" class="bot-link">t.me/buoi_6_bot</a>
+                        </div>
+                        <!--<div class="qr-placeholder">SCAN ME TO DEMO</div>-->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
