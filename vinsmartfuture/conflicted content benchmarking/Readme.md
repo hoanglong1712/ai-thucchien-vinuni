@@ -33,7 +33,7 @@ Lý do conflict có ok ko? Có giúp người dùng phát hiện được vị t
  - Phương pháp đánh giá được mô tả tại: https://www.overleaf.com/project/6a350704055a29c6db5ff1be
  - Kết quả thu được từ nguồn dữ liệu mẫu:
    - Tập tin kết quả: https://docs.google.com/spreadsheets/d/1YBednFD8BcemORiXilwvjPq_diFgg_MiyRgkCPwLsvo/edit?usp=sharing
-   - Tóm tắt kết quả: phát hiện 1 số khẳng định không có liên hệ ngữ nghĩa hay từ vựng với văn bản được trích dẫn. Đánh giá được chất lượng xung đột giữa 2 câu khẳng thông qua độ liên quan từ vựng giữa 2 câu và mức xung đột ngữ nghĩa giữa 2 câu, phản ánh đúng và đủ chất lượng tìm kiếm xung đột của mô hình đang được sử dụng.
+   - Tóm tắt kết quả: phát hiện 1 số khẳng định không có liên hệ ngữ nghĩa hay từ vựng với văn bản được trích dẫn. Đánh giá được chất lượng xung đột giữa 2 câu khẳng định thông qua độ liên quan từ vựng giữa 2 câu và mức xung đột ngữ nghĩa giữa 2 câu, phản ánh đúng và đủ chất lượng tìm kiếm xung đột của mô hình đang được sử dụng.
  - Các bước tiến hành bao gồm:
    - Phát hiện xem các khẳng định được trích dẫn có tồn tại bên trong tập tin được trích dẫn và tại dòng được trích dẫn hay không.
    - Tính "overlap score" thông qua lấy trung bình cộng của khoảng cách cosin giữa 2 khẳng định và giá trị IoU "Intersection over Union, aka Jaccard Index" cho unigram.
