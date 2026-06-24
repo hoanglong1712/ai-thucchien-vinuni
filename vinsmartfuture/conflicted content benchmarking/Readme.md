@@ -55,7 +55,7 @@ Lý do conflict có ok ko? Có giúp người dùng phát hiện được vị t
 
 ##  Một số paper trong industry tìm các cách phát hiện conflict phù hợp với yêu cầu hiện tại
 ### Joint Semantic Analysis with Knowledge Graphs for Fact-Checking 
-   - Thay vì chỉ so khớp văn bản, paper này trích xuất văn bản thành các cặp Thực thể - Quan hệ - Thực thể (S-P-O triples) rồi đối chiếu trên Đồ thị tri thức (Knowledge Graph). Nếu hai quan hệ của cùng một thực thể xung đột lẫn nhau (ví dụ: [A, sinh_tại, B] và [A, sinh_tại, C]), hệ thống sẽ cắm cờ xung đột ngay lập tức. https://arxiv.org/html/2505.14714v1
+   - Thay vì chỉ so khớp văn bản, hướng xử lý này trích xuất văn bản thành các cặp Thực thể - Quan hệ - Thực thể (S-P-O triples) rồi đối chiếu trên Đồ thị tri thức (Knowledge Graph). Nếu hai quan hệ của cùng một thực thể xung đột lẫn nhau (ví dụ: [A, sinh_tại, B] và [A, sinh_tại, C]), hệ thống sẽ cắm cờ xung đột ngay lập tức. https://arxiv.org/html/2505.14714v1
    - Cơ chế hoạt động:
      - Phân tách thông qua ngữ nghĩa: sử dụng mô hình ngôn ngữ lớn để phân tách các khẳng định thành dạng Subject-Predicate-Object. https://arxiv.org/html/2312.11785v1
      - Kết nối các thực thể với nhau trên đồ thị tri thức, nhóm các thực thể diễn đạt 1 đối tượng vào 1 đỉnh. Ví dụ : TP Hồ Chí Minh = Sài Gòn = Gia Định = Phiên An.  
