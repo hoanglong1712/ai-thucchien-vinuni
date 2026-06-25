@@ -21,4 +21,6 @@
 - https://www.kaggle.com/code/lvttct/vsf-benchmark-conflicted-iou-25-6-2026
 # conclusion
 - https://www.kaggle.com/code/lvttct/vsf-conflicted-benchmarking-conclusion-25-6-2026
+# json to xlsx
+- https://www.kaggle.com/code/lvttct/vsf-conflicted-benchmarking-to-xlsx-25-6-2026
 
