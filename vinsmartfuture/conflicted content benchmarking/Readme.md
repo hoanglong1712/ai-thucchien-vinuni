@@ -42,7 +42,7 @@ Lý do conflict có ok ko? Có giúp người dùng phát hiện được vị t
  - Các tập tin mã nguồn
    - Chuyển đổi tập tin xlsx thành tập tin json: https://www.kaggle.com/code/lvttct/vsf-benchmark-conflict-xlsx-to-json
    - Sử dụng mô hình gemma-2-2b-it-GGUF để kiểm tra xem khẳng định có thực sự tồn tại trong tập tin văn bản hay không, dù dưới dạng từ vựng hay dưới dạng ngữ nghĩa nhằm xác định các trích dẫn sai lầm: https://www.kaggle.com/code/lvttct/vsf-benchmark-conflict-text-in-data-source
-   - Sử dụng mô hình SBERT "dangvantuan/vietnamese-embedding" dành riêng cho Tiếng Việt để tính độ lệch cosine giữa cac khẳng định: https://www.kaggle.com/code/lvttct/vsf-benchmark-conflicted-similarity-23-6-2026
+   - Sử dụng mô hình SBERT "dangvantuan/vietnamese-embedding" dành riêng cho Tiếng Việt để tính độ lệch cosine giữa các khẳng định: https://www.kaggle.com/code/lvttct/vsf-benchmark-conflicted-similarity-23-6-2026
    - Sử dụng mô hình Qwen2.5-14B-Instruct-GGUF để điểm xung đột giữa 2 khẳng định và tính điểm giải thích nguyên nhân xung đột: https://www.kaggle.com/code/lvttct/vsf-benchmark-conflicted-text-testing-22-6-2026
    - Tổng hợp thông tin và xuất ra tập tin xlsx
     - https://www.kaggle.com/code/lvttct/vsf-benchmark-conflicted-iou-24-6-2026
