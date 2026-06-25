@@ -17,4 +17,8 @@
 - https://www.kaggle.com/code/lvttct/vsf-bm-conflicted-text-testing-25-6-2026
 # cosine similarity
 - https://www.kaggle.com/code/lvttct/vsf-benchmark-conflicted-similarity-25-6-2026
+# IoU
+- https://www.kaggle.com/code/lvttct/vsf-benchmark-conflicted-iou-25-6-2026
+# conclusion
+- https://www.kaggle.com/code/lvttct/vsf-conflicted-benchmarking-conclusion-25-6-2026
 
