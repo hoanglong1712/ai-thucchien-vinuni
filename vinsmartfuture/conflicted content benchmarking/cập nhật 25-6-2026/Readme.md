@@ -1,26 +1,8 @@
-
-# xlsx to json
-- https://www.kaggle.com/code/lvttct/vsf-benchmark-conflict-xlsx-to-json-25-6-2026
-# is claim in file 
-- https://www.kaggle.com/code/lvttct/vsf-benchmark-conflict-in-file-25-6-2026-0-20
-- https://www.kaggle.com/code/lvttct/vsf-benchmark-conflict-in-file-25-6-2026-20-40
-- https://www.kaggle.com/code/lvttct/vsf-benchmark-conflict-in-file-25-6-2026-40-60
-- https://www.kaggle.com/code/lvttct/vsf-benchmark-conflict-in-file-25-6-2026-60-80
-- https://www.kaggle.com/code/lvttct/vsf-benchmark-conflict-in-file-25-6-2026-80-97
-- https://www.kaggle.com/code/lvttct/vsf-benchmark-conflict-in-file-25-6-2026
-# are claims conflicted
-- https://www.kaggle.com/code/lvttct/vsf-bm-conflicted-text-testing-25-6-2026-0-20
-- https://www.kaggle.com/code/lvttct/vsf-bm-conflicted-text-testing-25-6-2026-20-40
-- https://www.kaggle.com/code/lvttct/vsf-bm-conflicted-text-testing-25-6-2026-40-60
-- https://www.kaggle.com/code/lvttct/vsf-bm-conflicted-text-testing-25-6-2026-60-80
-- https://www.kaggle.com/code/lvttct/vsf-bm-conflicted-text-testing-25-6-2026-80-97
-- https://www.kaggle.com/code/lvttct/vsf-bm-conflicted-text-testing-25-6-2026
-# cosine similarity
-- https://www.kaggle.com/code/lvttct/vsf-benchmark-conflicted-similarity-25-6-2026
-# IoU
-- https://www.kaggle.com/code/lvttct/vsf-benchmark-conflicted-iou-25-6-2026
-# conclusion
-- https://www.kaggle.com/code/lvttct/vsf-conflicted-benchmarking-conclusion-25-6-2026
-# json to xlsx
-- https://www.kaggle.com/code/lvttct/vsf-conflicted-benchmarking-to-xlsx-25-6-2026
-
+# Nội dung đã thực hiện từ ngày 24-6-2026
+- https://github.com/hoanglong1712/ai-thucchien-vinuni/tree/main/vinsmartfuture/conflicted%20content%20benchmarking
+# Kết quả đã thực hiện trong ngày 25-6-2028
+- File excel chứa kết quả tính điểm các cặp xung đột https://docs.google.com/spreadsheets/d/1T0RwtSTbgz2AIF4g4AlWhPBlImrMFPzGAz45g8NXVTs/edit?usp=sharing
+- Ý tưởng xây dựng pipeline
+  - Các đoạn xung đột cần có lượng từ vựng gần như nhau và chỉ khác nhau ở những từ chốt nhằm tạo ra hiện tượng hiểu nhầm của người đọc -> càng chung nhiều từ càng tốt -> giá trị cosine similarity và và IoU càng cao càng tốt -> đánh giá qua "rule-based"
+  -  Các đoạn xung đột cần có ngữ nghĩa mâu thuẫn với nhau -> đánh giá qua "LLM"
+- Pipeline:   https://github.com/hoanglong1712/ai-thucchien-vinuni/blob/main/vinsmartfuture/conflicted%20content%20benchmarking/c%E1%BA%ADp%20nh%E1%BA%ADt%2025-6-2026/pipeline.md
