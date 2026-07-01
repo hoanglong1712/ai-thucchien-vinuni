@@ -1,0 +1,338 @@
+﻿ID,Nhóm chức năng,Test Case (Mô tả),Kết quả mong đợi (Expected Result),Result (Pass/Fail),Note lại bất kỳ error nào,Người test (Tester),Ngày test (Test Date)
+PRE-01,01. Tiền điều kiện,"User chưa đăng nhập, truy cập màn hình Knowledge Base","• Hệ thống yêu cầu đăng nhập, không cho dùng tính năng Check conflicts",,,,
+PRE-02,01. Tiền điều kiện,User đăng nhập bằng tài khoản admin và vào màn hình Knowledge Base,• Hiển thị màn hình KB với button 'Check conflicts' ở góc trên phải,,,,
+PRE-03,01. Tiền điều kiện,Vào màn hình KB khi có đúng 2 file ở trạng thái Indexed,"• Button 'Check conflicts' enable, cho phép scan",,,,
+PRE-04,01. Tiền điều kiện,Vào màn hình KB khi backend AI/ML không hoạt động,"• Khi scan, hệ thống báo lỗi qua toast
+• Retry (không treo)",,,,
+AC1.1-01,02. Nút Check conflicts & Phạm vi quét,Kiểm tra vị trí button 'Check conflicts' ở màn hình KB,• Button hiển thị ở góc trên phải màn hình KB,,,,
+AC1.1-02,02. Nút Check conflicts & Phạm vi quét,Kiểm tra vị trí button 'Check conflicts' bên trong 1 folder,• Button hiển thị ở góc trên phải trong folder detail,,,,
+AC1.2-01,02. Nút Check conflicts & Phạm vi quét,Click 'Check conflicts' khi không tick checkbox nào (Main Flow),• Scan toàn bộ file MD trong scope hiện tại (full KB),,,,
+AC1.2-02,02. Nút Check conflicts & Phạm vi quét,Tick chọn vài file ở màn hình KB rồi click 'Check conflicts' (Case A),• Chỉ scan các file được tick chọn,,,,
+AC1.2-03,02. Nút Check conflicts & Phạm vi quét,"Mở folder HR Policies, không tick, click 'Check conflicts' (Case B)",• Scan tất cả file MD trong folder đó,,,,
+AC1.2-04,02. Nút Check conflicts & Phạm vi quét,"Mở folder, tick vài file, click 'Check conflicts' (Case C)",• Chỉ scan các file được tick trong folder đó,,,,
+AC1.3-01,02. Nút Check conflicts & Phạm vi quét,Scan KB có cả file Unpublished và Published nhưng đều có MD ở Silver,"• Tất cả file có MD Silver được đưa vào scan,
+  không phụ thuộc Unpublished/Published",,,,
+AC1.3-02,02. Nút Check conflicts & Phạm vi quét,Tick chọn 1 file không có MD ở Silver,• File không có MD Silver không được phép đưa vào scan / không hiển thị tick được,,,,
+AC1.4-01,02. Nút Check conflicts & Phạm vi quét,Vào scope chỉ có 1 file MD (Silver) eligible,"• Button 'Check conflicts' vẫn bấm được
+• button chỉ bị disable khi scope không có file Silver nào",,,,
+AC1.4-02,02. Nút Check conflicts & Phạm vi quét,Hover button khi scope có 0 file Silver eligible (button đang disable),• Hiển thị tooltip 'Cần ít nhất 1 file Silver được lập chỉ mục để kiểm tra xung đột.',,,,
+AC1.4-03,02. Nút Check conflicts & Phạm vi quét,Vào scope có 0 file Silver eligible,"• Button 'Check conflicts' disable kèm tooltip 
+'Cần ít nhất 1 file Silver được lập chỉ mục để kiểm tra xung đột.'",,,,
+AC1.5-01,02. Nút Check conflicts & Phạm vi quét,Trigger scan trong khi đã có 1 scan khác đang chạy (cùng scope),"• Button của scope đang quét hiển thị trạng thái Scanning (spinner)
+• click vào không tạo scan mới",,,,
+AC1.5-02,02. Nút Check conflicts & Phạm vi quét,Hover button khi đang có scan chạy,"• Button đang ở trạng thái Scanning
+• không hiển thị tooltip nào khi hover",,,,
+AC1.6-01,02. Nút Check conflicts & Phạm vi quét,Kiểm tra nguồn dữ liệu scan,"• Scan thực hiện trên file MD ở Silver,
+  tạo chunks riêng (không dùng chunks đã embed ở Gold)",,,,
+AC2.1-01,03. Trạng thái nút & Dropdown,Quan sát button ở trạng thái mặc định,"• Button màu primary (xanh dương),
+  chỉ hiển thị chữ 'Kiểm tra xung đột' không kèm icon
+• sẵn sàng click",,,,
+AC2.1-02,03. Trạng thái nút & Dropdown,Quan sát button trong khi scan,"• State Scanning: spinner
+• % progress",,,,
+AC2.1-03,03. Trạng thái nút & Dropdown,Quan sát button sau khi scan xong có conflicts,• State Has conflicts hiển thị đúng,,,,
+AC2.1-04,03. Trạng thái nút & Dropdown,Quan sát button sau khi scan xong không có conflicts,• State No conflicts hiển thị đúng,,,,
+AC2.2-01,03. Trạng thái nút & Dropdown,Trigger scan ở KB level rồi mở 1 folder,• Button ở folder đồng bộ trạng thái với lần scan mới nhất,,,,
+AC2.2-02,03. Trạng thái nút & Dropdown,So sánh trạng thái button giữa KB level và các folder,• Tất cả scope luôn hiển thị trạng thái của lần scan mới nhất,,,,
+AC2.3-01,03. Trạng thái nút & Dropdown,"Scan có conflicts, logout rồi login lại",• Button vẫn ở State Has conflicts (persist qua session),,,,
+AC2.3-02,03. Trạng thái nút & Dropdown,"Scan không conflicts, reload trang",• Button vẫn ở State No conflicts cho tới khi Dismiss/scan mới,,,,
+AC2.4-01,03. Trạng thái nút & Dropdown,"Ở State Scanning, click dropdown ▼","• Menu hiển thị item disable 'TIẾN ĐỘ QUÉT',
+  item disable '{X} trong số {Y} tài liệu', và item danger 'Hủy quét'",,,,
+AC2.4-02,03. Trạng thái nút & Dropdown,Click 'Cancel scan' trong dropdown ▼ của button (giữa chừng),"• Hủy ngay, không hỏi xác nhận
+• không lưu kết quả dở dang
+• button trở về trạng thái Default",,,,
+AC2.5-01,03. Trạng thái nút & Dropdown,"Ở State Has conflicts, mở dropdown ▼",• Có 3 options: Review conflicts / Re-run scan / Dismiss,,,,
+AC2.5-02,03. Trạng thái nút & Dropdown,Click 'Review conflicts' ở State Has conflicts,• Điều hướng đến trang Scan Detail của scan mới nhất,,,,
+AC2.6-01,03. Trạng thái nút & Dropdown,"Ở State No conflicts, mở dropdown ▼",• Có 2 options: Re-run scan / Dismiss,,,,
+AC2.7-01,03. Trạng thái nút & Dropdown,Click 'Dismiss' ở State Has conflicts,"• Button về Default, scan không bị xóa (vẫn lưu trong Scan History)",,,,
+AC2.7-02,03. Trạng thái nút & Dropdown,Click 'Dismiss' ở State No conflicts,"• Button về Default, scan vẫn lưu trong Scan History",,,,
+AC3.1-01,04. Thông báo hoàn tất & Badge sidebar,Đang ở màn hình khác khi scan hoàn tất,• Toast hiển thị ở góc dưới phải bất kể user ở màn hình nào,,,,
+AC3.2-01,04. Thông báo hoàn tất & Badge sidebar,Scan hoàn tất có conflicts,"• Toast dạng có conflicts, kèm button 'View results'",,,,
+AC3.2-02,04. Thông báo hoàn tất & Badge sidebar,Scan hoàn tất không có conflicts,• Toast dạng không có conflicts,,,,
+AC3.2-03,04. Thông báo hoàn tất & Badge sidebar,Scan fail (network/server),• Toast dạng lỗi kèm button 'Retry',,,,
+AC3.2-04,04. Thông báo hoàn tất & Badge sidebar,Click 'View results' trong toast khi có conflicts,• Đi đến trang Scan Detail của scan vừa xong,,,,
+AC3.3-01,04. Thông báo hoàn tất & Badge sidebar,Scan phát hiện conflicts,• Sidebar menu 'Conflict Detection' hiển thị badge đếm scans mới có conflicts chưa view,,,,
+AC3.4-01,04. Thông báo hoàn tất & Badge sidebar,Vào xem từng scan trong Scan History,• Badge sidebar giảm dần tương ứng số scan đã view,,,,
+AC4.1-01,05. Lịch sử quét (Scan History),Mở trang Scan History,"• Hiển thị các cột: Indicator, Thời gian scan, Scope, Số files quét, Conflicts,
+  Status, Action",,,,
+AC4.1-02,05. Lịch sử quét (Scan History),Kiểm tra cột Conflicts,"• Hiển thị: 'Không có xung đột' (xanh) / '{X} mở' (cam,
+  theo open_conflicts_count) / 'Tất cả đã được giải quyết' (xanh)
+• scan chưa completed hiển thị '—'",,,,
+AC4.1-03,05. Lịch sử quét (Scan History),Kiểm tra cột Status,• Hiển thị đúng: Running / Completed / Cancelled / Failed (+ badge Read-only nếu có),,,,
+AC4.2-01,05. Lịch sử quét (Scan History),Quan sát thứ tự sắp xếp mặc định,• Sắp xếp theo thời gian mới nhất trước,,,,
+AC4.2-02,05. Lịch sử quét (Scan History),Có hơn 20 scans trong history,• Pagination 20 scans/trang hoạt động đúng,,,,
+AC4.3-01,05. Lịch sử quét (Scan History),Click 'View details' trên 1 scan,• Điều hướng đến trang Scan Detail tương ứng,,,,
+AC4.4-01,05. Lịch sử quét (Scan History),Scan mới chưa view,• Hiển thị dot indicator (chấm xanh),,,,
+AC4.4-02,05. Lịch sử quét (Scan History),Vào xem scan có dot indicator,• Dot biến mất và badge sidebar giảm tương ứng,,,,
+AC4.5-01,05. Lịch sử quét (Scan History),Scan ở chế độ read-only trong history,• Row hiển thị opacity 0.7 và badge 🔒 Read-only bên cạnh Status,,,,
+UI-SH-01,05. Lịch sử quét (Scan History),Scan chưa view nhưng có conflicts,"• Cột Indicator hiển thị dot (badge processing)
+• scan không có conflict thì không hiển thị dot",,,,
+UI-SH-02,05. Lịch sử quét (Scan History),Scan đã bị Dismiss,• Row hiển thị mờ (is-muted) kèm tag 'Bị loại bỏ',,,,
+UI-SH-03,05. Lịch sử quét (Scan History),Mở menu Action trên 1 scan trong history,• Menu hiển thị các mục theo trạng thái: Xem chi tiết / Tiếp tục quét / Hủy quét / Xóa quét,,,,
+UI-SH-04,05. Lịch sử quét (Scan History),Cột Conflicts của scan chưa completed,• Hiển thị '—' (not applicable) thay vì số conflict,,,,
+UI-SH-05,05. Lịch sử quét (Scan History),Scan đang scanning trong history,"• Cột Status hiển thị progress bar nhỏ (size small, không show %)",,,,
+UI-SH-06,05. Lịch sử quét (Scan History),Scan failed trong history,• Cột Status hiển thị nội dung lỗi (tooltip error_message) màu đỏ,,,,
+AC5.1-01,06. Trang chi tiết quét (Scan Detail),"Vào trang Scan Detail, kiểm tra breadcrumb","• Breadcrumb 3 cấp: 'Cơ sở kiến thức' > 'Phát hiện xung đột' > [Timestamp scan]. 
+KHÔNG có cấp 'Scan History'",,,,
+AC5.2-01,06. Trang chi tiết quét (Scan Detail),Kiểm tra header Scan Detail,"• Có tiêu đề 'Scan Details', subtitle metadata, 2 button Back và Export report",,,,
+AC5.3-01,06. Trang chi tiết quét (Scan Detail),Kiểm tra 2 nút lọc (pills) cạnh tiêu đề,"• 2 nút lọc có số đếm động: '{X} Mở' (nút màu cam/danger)
+  và '{Y} Đã giải quyết' (nút thường, màu xám)",,,,
+AC5.3-02,06. Trang chi tiết quét (Scan Detail),Click pill 'Open Conflicts',"• Filter list bên dưới theo open, pill active có background đậm hơn",,,,
+AC5.4-01,06. Trang chi tiết quét (Scan Detail),Mở Scan Detail ở default view,"• Chỉ hiển thị conflicts status open, conflicts resolved KHÔNG hiển thị",,,,
+AC5.5-01,06. Trang chi tiết quét (Scan Detail),Click pill 'Resolved',"• Filter chỉ hiển thị conflicts đã resolved,
+  mỗi card có badge xanh hiển thị label action",,,,
+AC5.6-01,06. Trang chi tiết quét (Scan Detail),Thực hiện action resolve 1 conflict trong session,• Bộ đếm pills cập nhật ngay trong session hiện tại,,,,
+AC5.6-02,06. Trang chi tiết quét (Scan Detail),"Session khác resolve conflict, không reload",• Bộ đếm pills KHÔNG sync realtime (chỉ cập nhật khi reload/action mới),,,,
+AC5-EMPTY,06. Trang chi tiết quét (Scan Detail),Resolve hết toàn bộ conflicts trong 1 scan,• Trang Scan Detail hiển thị empty state thông thường,,,,
+UI-TAB-01,06. Trang chi tiết quét (Scan Detail),Vào trang Scan Detail,• Có 2 tab: 'Xung đột' (mặc định active) và 'Gỡ lỗi',,,,
+UI-FILTER-01,06. Trang chi tiết quét (Scan Detail),Quan sát 2 nút filter trên Scan Detail,"• Nút 'X Mở' (danger) và 'Y Đã giải quyết'
+• mặc định chọn 'Mở'",,,,
+UI-FILTER-02,06. Trang chi tiết quét (Scan Detail),Kiểm tra số đếm trên nút filter,• Số trên nút lấy từ open_conflicts_count / resolved_conflicts_count của scan,,,,
+UI-FILTER-03,06. Trang chi tiết quét (Scan Detail),Chọn filter không có conflict phù hợp,"• Empty state title 'Không có xung đột {filter}'
+• mô tả 'Bộ lọc quét đã chọn không có xung đột phù hợp.'",,,,
+UI-PAGE-01,06. Trang chi tiết quét (Scan Detail),Danh sách conflict vượt page size,"• Hiển thị pagination với options [10, 20, 50], có size changer",,,,
+AC6.1-01,07. Conflict Card & Chunk,Quan sát thông tin 1 conflict card,"• Hiển thị tiêu đề (max 100 ký tự), mô tả 1-2 câu, thời gian phát hiện,
+  confidence %",,,,
+AC6.2-01,07. Conflict Card & Chunk,Kiểm tra số chunk trong 1 conflict,"• Đúng 2 chunks, đánh nhãn A và B theo thứ tự AI phát hiện",,,,
+AC6.3-01,07. Conflict Card & Chunk,Quan sát header mỗi chunk,"• Hiển thị compact 1-2 hàng: badge nhãn
+• tên file MD
+• breadcrumb folder
+• thời gian update file",,,,
+AC6.4-01,07. Conflict Card & Chunk,Quan sát box nội dung chunk trong card,"• Nội dung chunk hiển thị nền muted (KHÔNG highlight vàng trong card). 
+Highlight nền vàng
+• border-left cam chỉ xuất hiện trong popup Expand",,,,
+AC6-CONF,07. Conflict Card & Chunk,Conflict có confidence < 0.50,"• Conflict có độ tin cậy (confidence) < 50% không hiển thị
+• chỉ hiển thị conflict có confidence >= 50%",,,,
+UI-TYPE-01,07. Conflict Card & Chunk,Conflict card có conflict_type,"• Hiển thị badge loại conflict đúng màu: Factual contradiction (đỏ),
+  Temporal inconsistency (cam), Lexical ambiguity (gold),
+  Multi-hop contradiction (tím)",,,,
+UI-TYPE-02,07. Conflict Card & Chunk,Conflict card không có conflict_type,• Không hiển thị badge loại conflict,,,,
+UI-TYPE-03,07. Conflict Card & Chunk,Conflict card có conflict_sub_type,"• Hiển thị badge phân loại (màu geekblue): 
+Numeric/Boolean/Policy-rule/Entity attribute/Temporal-version/Support chain/Entity bridge/Other",,,,
+UI-TYPE-04,07. Conflict Card & Chunk,Conflict card không có conflict_sub_type,• Không hiển thị badge phân loại,,,,
+UI-LABEL-01,07. Conflict Card & Chunk,Conflict resolved bằng Keep all,• Badge xanh hiển thị nhãn 'Giữ tất cả các nguồn',,,,
+UI-LABEL-02,07. Conflict Card & Chunk,Conflict resolved bằng Not a conflict,• Badge xanh hiển thị nhãn 'Đã đánh dấu là không xung đột',,,,
+UI-LABEL-03,07. Conflict Card & Chunk,Conflict resolved bằng xóa nội dung chunk,• Badge xanh hiển thị nhãn 'Đã giải quyết bằng cách xóa nội dung',,,,
+UI-LABEL-04,07. Conflict Card & Chunk,Conflict resolved bằng Auto resolve,• Badge xanh hiển thị nhãn 'Đã tự động xử lý theo chunk đối diện làm ground truth',,,,
+UI-DRAFT-01,07. Conflict Card & Chunk,Chunk có chỉnh sửa tạm chưa áp dụng (virtual_edited),• Hiển thị badge gold 'Draft edited' trên header chunk,,,,
+UI-DRAFT-02,07. Conflict Card & Chunk,Chunk được stage để xóa (virtual_deleted),• Hiển thị badge đỏ 'Draft deleted' trên header chunk,,,,
+UI-CHUNK-01,07. Conflict Card & Chunk,Quan sát header mỗi chunk,"• Hiển thị badge 'Chunk A/B' (xanh), tên file (đậm),
+  breadcrumb folder (mặc định 'Root') · location · 'Updated {thời gian}'",,,,
+UI-CHUNK-02,07. Conflict Card & Chunk,Click 'Expand' trên chunk,"• Mở modal full file MD read-only, tiêu đề là tên file,
+  đoạn chunk được highlight và auto-scroll vào giữa
+• footer có 'Open in file management' và 'Close'",,,,
+UI-CHUNK-03,07. Conflict Card & Chunk,Click 'Open' trên chunk,"• Mở tab mới tới /knowledge-base/files/{file_id} (target _blank, noopener)",,,,
+UI-DETAIL-01,08. Modal Giải thích chi tiết,Click button 'Giải thích chi tiết' (icon Info) trên conflict card,"• Mở modal 'Giải thích xung đột' (width 760), không có footer",,,,
+UI-DETAIL-02,08. Modal Giải thích chi tiết,Quan sát header modal Giải thích chi tiết,"• Hiển thị badge type, sub-type, verifier 'Được xác minh bởi {verifier}' (cyan)
+  và badge Confidence",,,,
+UI-DETAIL-03,08. Modal Giải thích chi tiết,Kiểm tra màu badge Confidence trong modal,"• Đỏ khi >= 85%, cam khi >= 60%, màu mặc định khi < 60%",,,,
+UI-DETAIL-04,08. Modal Giải thích chi tiết,Conflict có evidence summary,• Modal hiển thị mục 'Tóm tắt bằng chứng' dạng markdown,,,,
+UI-DETAIL-05,08. Modal Giải thích chi tiết,Conflict có explanation,• Modal hiển thị mục 'Giải thích' dạng markdown,,,,
+UI-DETAIL-06,08. Modal Giải thích chi tiết,Conflict có conflicting claims,"• Hiển thị 2 cột 'Đoạn A'/'Đoạn B' kèm tên file và danh sách claim
+• nếu rỗng hiển thị 'Không có khiếu nại cụ thể nào được ghi lại.'",,,,
+UI-DETAIL-07,08. Modal Giải thích chi tiết,Conflict có entities & topics,• Mục 'Thực thể & chủ đề' hiển thị các tag tương ứng,,,,
+UI-DETAIL-08,08. Modal Giải thích chi tiết,Conflict có reasoning path (multi-hop),"• Timeline 'Con đường suy luận': endpoint = dot xanh nhãn 'Đoạn xung đột',
+  bridge = nhãn 'Cầu'
+• step không còn nguồn hiển thị 'Nguồn không còn nữa'",,,,
+UI-DETAIL-09,08. Modal Giải thích chi tiết,Conflict có metadata bổ sung,• Hiển thị collapse 'Siêu dữ liệu nâng cao' chứa các cặp key-value,,,,
+UI-DETAIL-10,08. Modal Giải thích chi tiết,Conflict không có nội dung giải thích nào,• Modal hiển thị empty state 'Không có chi tiết giải thích bổ sung cho cuộc xung đột này.',,,,
+AC7.1-01,09. Hành động trên Chunk/Conflict,Click 'Edit chunk' trên 1 chunk,"• Kích hoạt inline edit, nội dung chunk thành editable, có button Save và Cancel",,,,
+AC7.1-02,09. Hành động trên Chunk/Conflict,Edit nội dung chunk rồi click Save (còn nội dung),"• Chỉnh sửa được LƯU TẠM (staged) trong scan
+• toast 'Đã lưu chỉnh sửa tạm trong scan này'. 
+File MD Silver chỉ được cập nhật khi bấm 'Hoàn tất' (Done) resolution, không replace ngay",,,,
+AC7.1-03,09. Hành động trên Chunk/Conflict,Edit chunk rồi click Cancel,"• Hủy chỉnh sửa, nội dung giữ nguyên",,,,
+AC7.2-01,09. Hành động trên Chunk/Conflict,Xóa hết text trong editor,"• Hiển thị placeholder cảnh báo 'Nội dung trống...',
+  button Save đổi thành 'Save & Delete' màu đỏ nhạt",,,,
+AC7.2-02,09. Hành động trên Chunk/Conflict,Click 'Save & Delete' khi nội dung trống,"• Stage xóa đoạn (virtual_deleted)
+• toast 'Đã đánh dấu xóa chunk và xử lý conflict trong scan này'
+• conflict auto-resolve nhãn 'Đã giải quyết bằng cách xóa nội dung'. File MD chỉ đổi khi Done",,,,
+AC7.2-03,09. Hành động trên Chunk/Conflict,"Sau khi Save & Delete, kiểm tra chunk","• chunk_status = virtual_deleted (draft), hiển thị badge 'Draft deleted'
+• chunk còn lại giữ active
+• việc xóa khỏi file MD chỉ áp dụng khi scan được Done",,,,
+AC7.3-01,09. Hành động trên Chunk/Conflict,Edit chunk còn nội dung (không xóa hết) rồi Save,"• Conflict vẫn ở Open, user phải tự Keep all / Not a conflict hoặc Re-run scan",,,,
+AC7.4-01,09. Hành động trên Chunk/Conflict,Click 'Not a conflict' trên 1 chunk,"• Cả 2 chunks tự động mark, conflict resolved label 'Marked as not a conflict'",,,,
+AC7.4-02,09. Hành động trên Chunk/Conflict,"Sau 'Not a conflict', kiểm tra feedback","• Cả 2 chunk vẫn giữ active, nội dung file không đổi
+• conflict chuyển sang resolved với nhãn 'Đã đánh dấu là không xung đột'",,,,
+AC7.5-01,09. Hành động trên Chunk/Conflict,Click 'Expand' trên 1 chunk,"• Mở popup full-height nội dung file MD read-only, auto scroll đến vị trí chunk",,,,
+AC7.5-02,09. Hành động trên Chunk/Conflict,Quan sát highlight trong popup Expand,"• Đoạn chứa chunk: background vàng nhạt
+• border-left cam
+• keyword conflict highlight vàng đậm",,,,
+AC7.5-03,09. Hành động trên Chunk/Conflict,Scroll trong popup Expand,• Cho phép scroll dọc xem toàn bộ file MD,,,,
+AC7.6-01,09. Hành động trên Chunk/Conflict,Click 'Open' trên 1 chunk,• Mở tab mới điều hướng đến màn hình quản lý file MD chứa chunk,,,,
+AC8.1-01,09. Hành động trên Chunk/Conflict,Kiểm tra vị trí button 'Keep all',"• Nằm ở khu vực bên phải header của conflict card,
+  trong nhóm flex cạnh button 'Not a conflict' (không phải đứng riêng ở góc trên phải)",,,,
+AC8.1-02,09. Hành động trên Chunk/Conflict,Click 'Keep all',"• Cả 2 chunks giữ active, không đổi nội dung file MD,
+  conflict resolved label 'Kept all sources'",,,,
+UI-AUTO-01,09. Hành động trên Chunk/Conflict,Quan sát action trên 1 chunk của conflict open,• Có button 'Tự động xử lý' (icon robot),,,,
+UI-AUTO-02,09. Hành động trên Chunk/Conflict,Click 'Tự động xử lý' trên Chunk A (đối diện Chunk B),• Hiện confirm 'Viết lại Chunk A với Chunk B làm ground truth?',,,,
+UI-AUTO-03,09. Hành động trên Chunk/Conflict,Xác nhận Auto resolve thành công,"• Toast 'Đã viết lại Chunk A theo Chunk B và lưu tạm',
+  chunk được stage chỉnh sửa",,,,
+UI-AUTO-04,09. Hành động trên Chunk/Conflict,Kiểm tra điều kiện disable button 'Tự động xử lý',"• Button 'Tự động xử lý' bị disable khi: scan ở chế độ read-only,
+  hoặc conflict không ở trạng thái open,
+  hoặc không có chunk đối diện làm ground truth",,,,
+UI-AUTO-05,09. Hành động trên Chunk/Conflict,Auto resolve conflict có conflict cùng fingerprint ở scan khác,• Toast 'Xung đột được giải quyết. X xung đột tương tự trong các lần quét khác cũng được giải quyết.',,,,
+UI-REOPEN-01,09. Hành động trên Chunk/Conflict,Quan sát conflict ở trạng thái resolved,• Hiển thị button 'Mở lại' (icon undo),,,,
+UI-REOPEN-02,09. Hành động trên Chunk/Conflict,Click 'Mở lại' trên conflict đã resolved,"• Hiện confirm 'Chuyển conflict này về Open? Các chỉnh sửa tạm vẫn có thể sửa tiếp
+  nhưng sẽ không được áp dụng nếu conflict chưa resolve lại.'",,,,
+UI-REOPEN-03,09. Hành động trên Chunk/Conflict,Xác nhận Mở lại conflict,"• Toast 'Đã chuyển conflict về Open', conflict chuyển về trạng thái Open",,,,
+UI-REOPEN-04,09. Hành động trên Chunk/Conflict,Button 'Mở lại' khi scan readonly,• Button 'Mở lại' bị disable,,,,
+UI-STAGE-01,09. Hành động trên Chunk/Conflict,Edit chunk còn nội dung rồi Save,"• Toast 'Đã lưu chỉnh sửa tạm trong scan này'
+• file MD chỉ được cập nhật khi bấm 'Hoàn tất' (Done), không đổi ngay khi Save",,,,
+UI-STAGE-02,09. Hành động trên Chunk/Conflict,Xóa hết nội dung trong editor chunk,"• Hiện alert cảnh báo 'Nội dung trống sẽ đánh dấu chunk để xóa. 
+Tệp chỉ thay đổi khi scan được đánh dấu Hoàn tất.', button đổi thành 'Save & Delete' (đỏ)",,,,
+UI-STAGE-03,09. Hành động trên Chunk/Conflict,Click 'Save & Delete' khi nội dung trống,"• Toast 'Đã đánh dấu xóa chunk và xử lý conflict trong scan này',
+  chunk chuyển trạng thái staged-deleted, conflict auto-resolve",,,,
+UI-HIST-01,09. Hành động trên Chunk/Conflict,Quan sát chunk đã từng được chỉnh sửa,• Có link 'Lịch sử' kèm số lần commit dạng '(X)',,,,
+UI-HIST-02,09. Hành động trên Chunk/Conflict,Click 'Lịch sử' trên chunk,• Mở modal 'Lịch sử' (width 720) hiển thị timeline các commit kèm word-diff trước/sau,,,,
+UI-HIST-03,09. Hành động trên Chunk/Conflict,Mở Lịch sử của chunk chưa có commit,• Modal hiển thị empty state (a-empty),,,,
+UI-RECOMMIT-01,09. Hành động trên Chunk/Conflict,Chunk bị commit bởi phiên khác trong khi đang edit (409 STALE_COMMIT),• Hiện modal 'Đoạn này đã thay đổi trong khi bạn đang chỉnh sửa' (width 900),,,,
+UI-RECOMMIT-02,09. Hành động trên Chunk/Conflict,Quan sát modal recommit,"• 2 cột: 'Chỉnh sửa của bạn' (trái)
+  và 'Phiên bản mới nhất (sự khác biệt được đánh dấu)' (phải, word-diff)",,,,
+UI-RECOMMIT-03,09. Hành động trên Chunk/Conflict,Click 'Cam kết lại' trong modal recommit,"• Commit chỉnh sửa chồng lên bản mới nhất
+• nếu lại stale thì modal nạp lại nội dung mới nhất",,,,
+UI-RES-01,10. Quy trình Done/Cancel resolution,Scan completed có resolve_status = doing,"• Hiển thị badge 'Xử lý: doing' (processing)
+• khi done badge chuyển màu xanh",,,,
+UI-RES-02,10. Quy trình Done/Cancel resolution,Scan completed & resolve_status doing,• Hiển thị button 'Hoàn tất' (Done) và 'Hủy xử lý' (Cancel resolution) ở toolbar,,,,
+UI-RES-03,10. Quy trình Done/Cancel resolution,Click 'Hoàn tất' khi không còn conflict open,"• Confirm 'Áp dụng toàn bộ chỉnh sửa tạm vào các tệp đang khóa
+  và hoàn tất scan này?'",,,,
+UI-RES-04,10. Quy trình Done/Cancel resolution,Click 'Hoàn tất' khi còn conflict open,"• Confirm 'Hoàn tất khi vẫn còn X conflict đang mở? 
+Các chỉnh sửa tạm của chúng sẽ bị bỏ qua.'",,,,
+UI-RES-05,10. Quy trình Done/Cancel resolution,Xác nhận Hoàn tất resolution thành công,"• Toast 'Đã áp dụng X chỉnh sửa đã resolve vào Y tệp;
+  bỏ qua Z chỉnh sửa chưa resolve'
+• staged edits được ghi vào file MD",,,,
+UI-RES-06,10. Quy trình Done/Cancel resolution,Click 'Hủy xử lý' (Cancel resolution),• Confirm 'Bỏ toàn bộ chỉnh sửa tạm và mở khóa các tệp của scan này?',,,,
+UI-RES-07,10. Quy trình Done/Cancel resolution,Xác nhận Hủy xử lý,"• Toast 'Đã hủy xử lý và mở khóa tệp'
+• mọi staged edit bị bỏ",,,,
+UI-RES-08,10. Quy trình Done/Cancel resolution,"Scan completed, doing, còn conflict open","• Hiển thị banner cảnh báo 'Vẫn còn X conflict đang mở'
+• mô tả 'chỉ chỉnh sửa tạm thuộc conflict đã resolved mới được áp dụng...'",,,,
+UI-RES-09,10. Quy trình Done/Cancel resolution,Scan có resolve_status khác doing (đã đóng),"• Banner 'Quá trình xử lý của scan này đã đóng và hiện chỉ có thể xem.'
+  và các action chuyển read-only",,,,
+AC9.1-01,11. Re-run & Export báo cáo,Kiểm tra option 'Re-run scan',• Có trong dropdown button 'Check conflicts' ở State Has conflicts / No conflicts,,,,
+AC9.2-01,11. Re-run & Export báo cáo,Thực hiện Re-run scan,"• Tạo 1 scan job mới trong Scan History, không ghi đè scan cũ",,,,
+AC9.3-01,11. Re-run & Export báo cáo,Re-run scan sau khi đã resolve ở scan cũ,"• Quyết định ở scan cũ (Keep all/Not a conflict/Edit chunk) giữ trong history,
+  không ảnh hưởng scan mới",,,,
+AC10.1-01,11. Re-run & Export báo cáo,Click 'Export report' ở Scan Detail,• Tải về file Excel báo cáo của scan (tên file dạng conflict_report_[scan_id].xlsx),,,,
+AC10.2-01,11. Re-run & Export báo cáo,Mở file report đã export,"• Có đủ cột: Conflict ID, Status, Title, Description, Confidence, Detected At,
+  Resolved At, Resolved Action, Source File A, Folder A, Source File B, Folder B",,,,
+AC11.1-01,12. Đa phiên & Concurrency,2 session/tab dùng chung admin account,• Hệ thống không sync realtime giữa các session,,,,
+AC11.2-01,12. Đa phiên & Concurrency,Click action trên conflict còn open,• Thực hiện bình thường,,,,
+AC11.2-02,12. Đa phiên & Concurrency,Click action trên conflict đã resolved bởi session khác,"• Dialog 'This conflict was already resolved in another session. The page will refresh now.'
+• OK
+   → reload",,,,
+AC11.3-01,12. Đa phiên & Concurrency,"Session khác resolve, không reload, không action",• Bộ đếm summary pills chỉ cập nhật khi reload hoặc thực hiện action mới,,,,
+UI-CONC-01,12. Đa phiên & Concurrency,Resolve conflict đã được resolved ở phiên khác (409),"• Modal 'Xung đột đã được giải quyết' nội dung 
+'Xung đột này đã được giải quyết trong một phiên khác. 
+Trang sẽ được làm mới ngay bây giờ.'
+   → OK reload",,,,
+AC12.1-01,"13. Identical, Cascade & Read-only",Tạo 2 conflict giống hệt (cùng file/chunk/spans/content),• 2 conflict có cùng fingerprint = identical,,,,
+AC12.2-01,"13. Identical, Cascade & Read-only",Resolve 1 conflict khi tồn tại conflicts identical open ở scan khác,• Cascade mark resolved tất cả conflicts identical với cùng resolved_action,,,,
+AC12.3-01,"13. Identical, Cascade & Read-only",Resolve conflict có >= 1 conflict cascade theo,• Toast 'Conflict resolved. X similar conflicts in other scans were also resolved.',,,,
+AC12.3-02,"13. Identical, Cascade & Read-only",Resolve conflict không có cascade,• Toast 'Đã giải quyết' (conflict.scan.resolved),,,,
+AC12.4-01,"13. Identical, Cascade & Read-only",Vào Scan Detail của scan cũ có scan mới hơn cùng scope_hash,"• Scan chuyển read-only, hiển thị banner cảnh báo
+• link 'Go to latest scan'",,,,
+AC12.4-02,"13. Identical, Cascade & Read-only","Ở scan read-only, kiểm tra action buttons","• Edit chunk / Not a conflict / Keep all bị disable
+• Expand và Open vẫn dùng được",,,,
+AC12.5-01,"13. Identical, Cascade & Read-only",Hai scan có scope overlap một phần (không trùng hoàn toàn),"• Không trigger read-only, các scan vẫn cho action bình thường",,,,
+AC12.5-02,"13. Identical, Cascade & Read-only",Hai scan có cùng set file_ids,"• Xác định scope trùng hoàn toàn
+   → trigger read-only cho scan cũ",,,,
+UI-RESUME-01,14. Resume & Delete scan,Scan ở trạng thái failed/cancelled/stale,"• Có action 'Tiếp tục quét'
+• click hiện confirm 'Tiếp tục quét từ checkpoint gần nhất?'",,,,
+UI-RESUME-02,14. Resume & Delete scan,Xác nhận Tiếp tục quét,"• Toast 'Đã tiếp tục quét', scan tiếp tục từ checkpoint",,,,
+UI-RESUME-03,14. Resume & Delete scan,Click 'Thử lại' (Retry) trong toast scan fail,• Gọi resume scan và làm mới dữ liệu conflict-detection,,,,
+UI-DELETE-01,14. Resume & Delete scan,Scan không ở trạng thái scanning,"• Có action 'Xóa quét'
+• click hiện confirm 'Xóa lần quét này và toàn bộ kết quả liên quan?'",,,,
+UI-DELETE-02,14. Resume & Delete scan,Xác nhận Xóa quét,• Toast 'Đã xóa quét' và điều hướng về trang /conflict-detection,,,,
+UI-DELETE-03,14. Resume & Delete scan,Action 'Xóa quét' với scan đang scanning,• Action 'Xóa quét' bị ẩn (không cho xóa scan đang chạy),,,,
+UI-DEBUG-01,15. Tab Debug & Tiến độ quét,Mở tab 'Gỡ lỗi',"• Hiển thị các mục: Tổng quan, Tiến độ, Runtime & phạm vi,
+  Tệp trong phạm vi (bảng 20/trang), Checkpoint pipeline, Metadata quét",,,,
+UI-DEBUG-02,15. Tab Debug & Tiến độ quét,Click 'Sao chép JSON' ở mục Metadata,"• Copy JSON vào clipboard, toast 'Đã sao chép ...' (lỗi
+   → 'Không thể sao chép vào clipboard')",,,,
+UI-DEBUG-03,15. Tab Debug & Tiến độ quét,Expand 1 dòng trong bảng Checkpoint,"• Hiển thị payload dạng JSON
+• nếu không có checkpoint hiển thị 'Chưa có checkpoint nào.'",,,,
+UI-PROG-01,15. Tab Debug & Tiến độ quét,Quan sát panel tiến độ khi scan đang chạy hoặc failed,• Panel tiến độ hiển thị (chỉ hiện khi status scanning hoặc failed),,,,
+UI-PROG-02,15. Tab Debug & Tiến độ quét,Quan sát header panel tiến độ,"• Title 'Tiến độ quét', subtitle,
+  status tag đúng màu (scanning=blue/completed=green/failed=red/cancelled=default),
+  button 'Hủy quét' khi đang scanning",,,,
+UI-PROG-03,15. Tab Debug & Tiến độ quét,Quan sát 3 metric của panel tiến độ,"• Hiển thị 'Giai đoạn hiện tại', 'Tệp đã xử lý' (x/y), 'Chunk đã xử lý' (x/y)",,,,
+UI-PROG-04,15. Tab Debug & Tiến độ quét,Quan sát danh sách stage pipeline,"• Hiển thị 12 stage (Chuẩn bị phạm vi...Xác minh xung đột) 
+với trạng thái is-completed/is-current/is-pending và dot màu tương ứng",,,,
+UI-PROG-05,15. Tab Debug & Tiến độ quét,Scan failed có error message,"• Hiển thị alert lỗi 'Thông báo lỗi'
+• nội dung lỗi từ backend",,,,
+UI-PROG-06,15. Tab Debug & Tiến độ quét,Click 'Hủy quét' trong progress panel,"• Hiện confirm 'Hủy lần quét này?'
+   → sau khi xác nhận hiện toast 'Đã hủy quét'",,,,
+UI-BADGE-01,16. Sidebar & Phân quyền,Quan sát badge menu 'Conflict Detection' ở sidebar,"• Badge = sidebar_badge (số scan có conflict chưa view)
+• ẩn khi = 0
+• ẩn khi sidebar collapsed",,,,
+UI-BADGE-02,16. Sidebar & Phân quyền,Quan sát badge trên mobile nav drawer,• Hiển thị badge số tương tự sidebar khi badge > 0,,,,
+UI-PERM-01,16. Sidebar & Phân quyền,User không có quyền conflict_detection vào màn hình KB,• Button 'Check conflicts' bị disable kèm tooltip quyền (kb.check_conflicts_permission),,,,
+EXC-01,17. Ngoại lệ (Exceptions),Scope có 0 file Silver eligible,"• Button disable
+• tooltip 'Cần ít nhất 1 file Silver được lập chỉ mục để kiểm tra xung đột.'",,,,
+EXC-02,17. Ngoại lệ (Exceptions),User cancel scan giữa chừng qua dropdown ▼ của button,"• Hủy ngay không confirmation, không lưu partial,
+  button về Default (cancel từ Progress Panel/Scan History có confirm)",,,,
+EXC-03,17. Ngoại lệ (Exceptions),Scan fail do network/server,"• Button về Default
+• toast lỗi góc dưới phải kèm 'Retry'",,,,
+EXC-04,17. Ngoại lệ (Exceptions),Trigger scan khi đang có scan khác chạy,"• Button của scope đang quét hiển thị trạng thái Scanning
+• không hiển thị tooltip",,,,
+EXC-05,17. Ngoại lệ (Exceptions),User logout/đóng tab khi scan đang chạy,"• Scan tự động bị hủy
+• login lại button về Default",,,,
+EXC-06,17. Ngoại lệ (Exceptions),Concurrent action khi conflict đã resolved session khác,"• Dialog thông báo
+• OK
+   → reload trang",,,,
+EXC-07,17. Ngoại lệ (Exceptions),Vào scan cũ có scope trùng hoàn toàn scan mới hơn,"• Scan cũ read-only, banner cảnh báo
+• link 'Go to latest scan', action button disable",,,,
+COR-01,18. Corner cases,1 file MD có nhiều chunk ở nhiều conflict khác nhau,"• Mỗi conflict xử lý độc lập,
+  action ở conflict này không ảnh hưởng conflict khác",,,,
+COR-02,18. Corner cases,Xóa hết content 1 chunk qua Edit,"• Đoạn được stage để xóa (virtual_deleted),
+  conflict auto-resolve 'Đã giải quyết bằng cách xóa nội dung'
+• file MD Silver chỉ thay đổi khi scan được Done",,,,
+COR-03,18. Corner cases,Edit chunk còn nội dung (không xóa hết),"• Conflict vẫn Open, cần Keep all/Not a conflict hoặc Re-run scan để resolve",,,,
+COR-04,18. Corner cases,Resolve conflict X có conflicts cùng fingerprint ở scan khác,• Các conflict cùng fingerprint ở scan khác tự động resolved cùng action (cascade),,,,
+COR-05,18. Corner cases,3 file cùng mâu thuẫn 1 chủ đề,"• AI tạo nhiều conflict riêng biệt theo cặp (1vs2, 1vs3, 2vs3)",,,,
+COR-06,18. Corner cases,Resolve hết conflicts trong scan,• Hiển thị empty state thông thường,,,,
+DATA-01,19. Tầng dữ liệu (Backend/E2E),Kiểm tra title do AI gen vượt 100 ký tự,• Title bị giới hạn / cắt còn max 100 ký tự,,,,
+DATA-02,19. Tầng dữ liệu (Backend/E2E),Kiểm tra description vượt 500 ký tự,• Description giới hạn max 500 ký tự,,,,
+DATA-03,19. Tầng dữ liệu (Backend/E2E),Kiểm tra scope_hash của 2 scan cùng set file_ids (khác thứ tự),• scope_hash bằng nhau (file_ids được sort trước khi hash),,,,
+DATA-04,19. Tầng dữ liệu (Backend/E2E),Kiểm tra field is_readonly,• True khi tồn tại scan khác cùng scope_hash và scanned_at mới hơn,,,,
+DATA-05,19. Tầng dữ liệu (Backend/E2E),Kiểm tra cascade_resolved_from_scan_id,"• Null nếu resolve trực tiếp
+• có scan_id gốc nếu resolve theo cascade",,,,
+ERR-01,20. Hiển thị lỗi (Error display),Tạo scan thất bại (backend lỗi),• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-02,20. Hiển thị lỗi (Error display),Hủy scan thất bại,• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-03,20. Hiển thị lỗi (Error display),Dismiss scan thất bại,• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-04,20. Hiển thị lỗi (Error display),Scan kết thúc với status = failed (thông báo app-level),"• notification.error góc dưới phải: title 'Quét không thành công',
+  description = error_message từ backend, button 'Thử lại' (danger),
+  KHÔNG tự đóng (duration 0)",,,,
+ERR-05,20. Hiển thị lỗi (Error display),Scan failed - xem trên Progress Panel ở Scan Detail,"• Hiển thị a-alert type error: tiêu đề 'Thông báo lỗi'
+• nội dung error_message
+• progress bar status 'exception' (đỏ)",,,,
+ERR-06,20. Hiển thị lỗi (Error display),Scan failed - xem trên Scan History,"• Status tag đỏ 'Thất bại'
+• dòng hiển thị error_message rút gọn màu đỏ, hover tooltip xem full error",,,,
+ERR-07,20. Hiển thị lỗi (Error display),Click 'Thử lại' trong notification scan failed nhưng resume lỗi,"• Lỗi resume bị nuốt im lặng (không toast)
+• trạng thái sẽ được báo lại ở lần refresh kế tiếp",,,,
+ERR-08,20. Hiển thị lỗi (Error display),Resume scan thất bại (từ menu/nút Resume),• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-09,20. Hiển thị lỗi (Error display),Xóa scan thất bại,• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-10,20. Hiển thị lỗi (Error display),Export report thất bại,• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-11,20. Hiển thị lỗi (Error display),Lưu chỉnh sửa chunk (Save) thất bại - lỗi chung,• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-12,20. Hiển thị lỗi (Error display),Lưu chỉnh sửa chunk thất bại do 409 STALE_COMMIT,"• Hiện modal 'Đoạn này đã thay đổi trong khi bạn đang chỉnh sửa' 
+(2 cột so sánh: chỉnh sửa của bạn và bản mới nhất, nút 'Cam kết lại') 
+— không phải toast lỗi thông thường",,,,
+ERR-13,20. Hiển thị lỗi (Error display),Action resolve thất bại do 409 conflict đã resolved ở phiên khác,"• Hiện hộp thoại 'Xung đột đã được giải quyết' nội dung 
+'Xung đột này đã được giải quyết trong một phiên khác. 
+Trang sẽ được làm mới ngay bây giờ.' → bấm OK trang tự reload",,,,
+ERR-14,20. Hiển thị lỗi (Error display),Tải Lịch sử chỉnh sửa chunk thất bại,• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-15,20. Hiển thị lỗi (Error display),Keep all / Not a conflict thất bại,"• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về
+• nếu là lỗi 409 (conflict đã được resolve ở phiên khác) thì hiện hộp thoại như ERR-13",,,,
+ERR-16,20. Hiển thị lỗi (Error display),Auto resolve thất bại,"• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về
+• nếu là lỗi 409 (conflict đã được resolve ở phiên khác) thì hiện hộp thoại như ERR-13",,,,
+ERR-17,20. Hiển thị lỗi (Error display),Reopen conflict thất bại,• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-18,20. Hiển thị lỗi (Error display),Hoàn tất (Done) resolution thất bại,• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-19,20. Hiển thị lỗi (Error display),Hủy xử lý (Cancel resolution) thất bại,• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-20,20. Hiển thị lỗi (Error display),Sao chép JSON ở Debug panel thất bại,• Toast lỗi 'Không thể sao chép vào clipboard',,,,
+ERR-21,20. Hiển thị lỗi (Error display),Mở Expand (tải full file MD) thất bại,• Hiển thị toast báo lỗi với nội dung mô tả lỗi do hệ thống trả về,,,,
+ERR-22,20. Hiển thị lỗi (Error display),Lỗi polling tiến độ scan / commit (nền),"• Nuốt lỗi im lặng, KHÔNG hiển thị gì cho user
+• lần poll kế tiếp tự thử lại",,,,
+ERR-23,20. Hiển thị lỗi (Error display),Backend trả lỗi nhưng không có message,• Toast hiển thị fallback 'The API request failed.',,,,
+ERR-24,20. Hiển thị lỗi (Error display),Request gặp 401 Unauthorized,"• Interceptor tự refresh token
+• nếu refresh thất bại
+   → logout và redirect về trang đăng nhập",,,,
+ERR-25,20. Hiển thị lỗi (Error display),Lỗi mạng (ERR_NETWORK) khi gọi API,"• Tự retry qua proxy
+• nếu vẫn lỗi
+   → ApiClientError với message fallback hiển thị qua toast",,,,
