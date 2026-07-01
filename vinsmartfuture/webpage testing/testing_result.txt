@@ -1,1 +1,394 @@
 
+PS D:\work\ai\vsf\test> python .\gemini.py
+2026-07-01 15:07:16,480 | INFO     | Đang khởi tạo cấu hình Trình duyệt với BrowserProfile...
+INFO     [CheckConflictsTest] Đang khởi tạo cấu hình Trình duyệt với BrowserProfile...
+2026-07-01 15:07:16,761 | INFO     | 🚀 [RUNNING] Test Case: 01_LOGIN_PRECONDITION
+INFO     [CheckConflictsTest] 🚀 [RUNNING] Test Case: 01_LOGIN_PRECONDITION
+INFO     [service] Using anonymized telemetry, see https://docs.browser-use.com/development/monitoring/telemetry.
+INFO     [Agent] 🔗 Found URL in task: https://vin-service-platform.hotavn.com/auth/login, adding as initial action...
+INFO     [Agent] 🎯 Task: 
+            Go to https://vin-service-platform.hotavn.com/auth/login
+            Nhập email 'lamviectaivinsmartfuture@gmail.com' vào ô nhập email.
+            Nhập mật khẩu '@' vào ô nhập mật khẩu.
+            Click nút 'Đăng nhập' hoặc 'Login'.
+            Chờ cho đến khi trang quản lý Knowledge Base tải xong hoàn toàn. 
+
+INFO     [Agent] Starting a browser-use agent with version 0.13.1, with provider=ollama and model=gemma4:e2b
+INFO     [Agent]   ▶️   navigate: url: https://vin-service-platform.hotavn.com/auth/login, new_tab: False
+WARNING  [BrowserSession] ⚠️ Page readiness timeout (8.0s, 8375ms) for https://vin-service-platform.hotavn.com/auth/login
+INFO     [tools] 🔗 Navigated to https://vin-service-platform.hotavn.com/auth/login
+INFO     [Agent] 
+
+INFO     [Agent] 📍 Step 1:
+ERROR    [Agent] ⏰ Step 1 timed out after 180 seconds
+INFO     [Agent] 
+
+INFO     [Agent] 📍 Step 2:
+ERROR    [Agent] ⏰ Step 2 timed out after 180 seconds
+ERROR    [Agent] ❌ Stopping due to 1 consecutive failures
+INFO     [Agent] 
+INFO     [Agent] Did the Agent not work as expected? Let us fix this!
+INFO     [Agent]    Open a short issue on GitHub: https://github.com/browser-use/browser-use/issues
+INFO     [BrowserSession] 📢 on_BrowserStopEvent - Calling reset() (force=True, keep_alive=None)
+INFO     [BrowserSession] [SessionManager] Cleared all owned data (targets, sessions, mappings)
+INFO     [BrowserSession] ✅ Browser session reset complete
+INFO     [BrowserSession] ✅ Browser session reset complete
+2026-07-01 15:13:28,157 | ERROR    | ❌ [FAILED] 01_LOGIN_PRECONDITION bị dừng giữa chừng.
+ERROR    [CheckConflictsTest] ❌ [FAILED] 01_LOGIN_PRECONDITION bị dừng giữa chừng.
+2026-07-01 15:13:30,173 | INFO     | 🚀 [RUNNING] Test Case: 02_BUTTON_CHECK_POSITION
+INFO     [CheckConflictsTest] 🚀 [RUNNING] Test Case: 02_BUTTON_CHECK_POSITION
+INFO     [Agent] 🎯 Task: 
+            Đảm bảo trình duyệt đang ở giao diện màn hình Knowledge Base sau khi đã đăng nhập thành công.
+            Tìm xem ở khu vực góc trên bên phải màn hình có nút mang tên 'Check conflicts' hay 'Kiểm tra xung đột' không.
+            Nếu có, hãy trả về kết quả có chữ 'SUCCESS'.
+
+INFO     [Agent] Starting a browser-use agent with version 0.13.1, with provider=ollama and model=gemma4:e2b
+WARNING  [Agent] ❌ Result failed 1/2 times: Expected at least one handler to return a non-None result, but none did! ?▶ BrowserStateReque
+stEvent#2bab ✅ -> {}
+ERROR    [Agent] ❌ Result failed 2/2 times: Expected at least one handler to return a non-None result, but none did! ?▶ BrowserStateReque
+stEvent#cfc2 ✅ -> {}
+ERROR    [Agent] ❌ Stopping due to 1 consecutive failures
+INFO     [Agent] 
+INFO     [Agent] Did the Agent not work as expected? Let us fix this!
+INFO     [Agent]    Open a short issue on GitHub: https://github.com/browser-use/browser-use/issues
+INFO     [BrowserSession] ✅ Browser session reset complete
+2026-07-01 15:13:31,257 | ERROR    | ❌ [FAILED] 02_BUTTON_CHECK_POSITION bị dừng giữa chừng.
+ERROR    [CheckConflictsTest] ❌ [FAILED] 02_BUTTON_CHECK_POSITION bị dừng giữa chừng.
+2026-07-01 15:13:33,266 | INFO     | 🚀 [RUNNING] Test Case: 03_PERFORM_SCAN_FULL_SCOPE
+INFO     [CheckConflictsTest] 🚀 [RUNNING] Test Case: 03_PERFORM_SCAN_FULL_SCOPE
+INFO     [Agent] 🎯 Task: 
+            Tại giao diện Knowledge Base, hãy chắc chắn KHÔNG tích chọn bất kỳ ô checkbox nào của các file.
+            Nhấn thẳng trực tiếp vào nút 'Check conflicts' hoặc 'Kiểm tra xung đột'.
+            Xác nhận xem hệ thống có bắt đầu tiến trình quét toàn bộ file hay không.
+
+INFO     [Agent] Starting a browser-use agent with version 0.13.1, with provider=ollama and model=gemma4:e2b
+WARNING  [Agent] ❌ Result failed 1/2 times: Expected at least one handler to return a non-None result, but none did! ?▶ BrowserStateReque
+stEvent#75fe ✅ -> {}
+ERROR    [Agent] ❌ Result failed 2/2 times: Expected at least one handler to return a non-None result, but none did! ?▶ BrowserStateReque
+stEvent#529d ✅ -> {}
+ERROR    [Agent] ❌ Stopping due to 1 consecutive failures
+INFO     [Agent] 
+INFO     [Agent] Did the Agent not work as expected? Let us fix this!
+INFO     [Agent]    Open a short issue on GitHub: https://github.com/browser-use/browser-use/issues
+INFO     [BrowserSession] ✅ Browser session reset complete
+2026-07-01 15:13:33,828 | ERROR    | ❌ [FAILED] 03_PERFORM_SCAN_FULL_SCOPE bị dừng giữa chừng.
+ERROR    [CheckConflictsTest] ❌ [FAILED] 03_PERFORM_SCAN_FULL_SCOPE bị dừng giữa chừng.
+2026-07-01 15:13:35,834 | INFO     | ================================================================================
+PS D:\work\ai\vsf\test> python .\gemini.py
+2026-07-01 15:33:03,520 | INFO     | Đang khởi tạo cấu hình Trình duyệt với BrowserProfile...
+INFO     [CheckConflictsTest] Đang khởi tạo cấu hình Trình duyệt với BrowserProfile...
+2026-07-01 15:33:03,772 | INFO     | 🚀 [RUNNING] Test Case: 01_LOGIN_PRECONDITION
+INFO     [CheckConflictsTest] 🚀 [RUNNING] Test Case: 01_LOGIN_PRECONDITION
+INFO     [service] Using anonymized telemetry, see https://docs.browser-use.com/development/monitoring/telemetry.
+INFO     [Agent] 🔗 Found URL in task: https://vin-service-platform.hotavn.com/auth/login, adding as initial action...
+INFO     [Agent] 🎯 Task: 
+            Go to https://vin-service-platform.hotavn.com/auth/login
+            Nhập email 'lamviectaivinsmartfuture@gmail.com' vào ô nhập email.
+            Nhập mật khẩu '@' vào ô nhập mật khẩu.
+            Click nút 'Đăng nhập' hoặc 'Login'.
+            Chờ cho đến khi trang quản lý Knowledge Base tải xong hoàn toàn. 
+
+INFO     [Agent] Starting a browser-use agent with version 0.13.1, with provider=ollama and model=gemma4:e2b
+INFO     [Agent]   ▶️   navigate: url: https://vin-service-platform.hotavn.com/auth/login, new_tab: False
+PS D:\work\ai\vsf\test> python .\gemini.py
+2026-07-01 15:39:21,328 | INFO     | Đang khởi tạo cấu hình Trình duyệt với BrowserProfile...
+INFO     [CheckConflictsTest] Đang khởi tạo cấu hình Trình duyệt với BrowserProfile...
+2026-07-01 15:39:21,592 | INFO     | 🚀 [RUNNING] Test Case: 01_LOGIN_PRECONDITION
+INFO     [CheckConflictsTest] 🚀 [RUNNING] Test Case: 01_LOGIN_PRECONDITION
+INFO     [service] Using anonymized telemetry, see https://docs.browser-use.com/development/monitoring/telemetry.
+INFO     [Agent] 🔗 Found URL in task: https://vin-service-platform.hotavn.com/auth/login, adding as initial action...
+INFO     [Agent] 🎯 Task: 
+            Go to https://vin-service-platform.hotavn.com/auth/login
+            Nhập email 'lamviectaivinsmartfuture@gmail.com' vào ô nhập email.
+            Nhập mật khẩu '@' vào ô nhập mật khẩu.
+            Click nút 'Đăng nhập' hoặc 'Login'.
+            Chờ cho đến khi trang quản lý Knowledge Base tải xong hoàn toàn. 
+
+INFO     [Agent] Starting a browser-use agent with version 0.13.1, with provider=ollama and model=gemma4:e2b
+INFO     [Agent]   ▶️   navigate: url: https://vin-service-platform.hotavn.com/auth/login, new_tab: False
+WARNING  [BrowserSession] ⚠️ Page readiness timeout (8.0s, 8360ms) for https://vin-service-platform.hotavn.com/auth/login
+INFO     [tools] 🔗 Navigated to https://vin-service-platform.hotavn.com/auth/login
+INFO     [Agent] 
+
+INFO     [Agent] 📍 Step 1:
+INFO     [Agent]   👍 Eval: Successfully navigated to the login page, but the subsequent steps of filling forms and clicking login need to be executed.
+INFO     [Agent]   🧠 Memory: The agent successfully navigated to the login page. The next steps involve entering the provided credentials into the respective fields and submitting the form, followed by waiting for the Knowledge Base to load.
+INFO     [Agent]   🎯 Next goal: Input the email and password into the form fields and click the Sign in button.
+INFO     [Agent]   ▶️   input: index: 9, text: lamviectaivinsmartfuture@gmail.com
+INFO     [BrowserSession] ⌨️ Typed "lamviectaivinsmartfuture@gmail.com" into element with index 9
+INFO     [Agent] 
+
+INFO     [Agent] 📍 Step 2:
+INFO     [Agent]   👍 Eval: The previous step successfully input the email address but failed validation, indicating the process is stalled.
+INFO     [Agent]   🧠 Memory: The agent navigated to the login page and attempted to input the email and password. The email input was recorded, but the subsequent action likely failed due to the invalid email format, and the next step should be to attempt the password entry and submission.
+INFO     [Agent]   🎯 Next goal: Input the password and click the 'Sign in' button to attempt the login.
+INFO     [Agent]   ▶️   input: index: 18, text: @
+INFO     [BrowserSession] ⌨️ Typed "@" into element with index 18
+INFO     [Agent] 
+
+INFO     [Agent] 📍 Step 3:
+INFO     [Agent]   👍 Eval: The previous step successfully entered the email and password but resulted in an incomplete state, indicating the login attempt stalled.
+INFO     [Agent]   🧠 Memory: The agent successfully navigated to the login page and attempted to input the email and password, but the result showed that the process stalled after the password entry, suggesting the login failed or the page is still loading.
+INFO     [Agent]   🎯 Next goal: Wait for the Knowledge Base to load completely after the login attempt.
+INFO     [Agent]   ▶️   click: index: 10
+INFO     [tools] 🖱️ Clicked button "Sign in"
+INFO     [Agent] 
+
+INFO     [Agent] 📍 Step 4:
+INFO     [Agent]   👍 Eval: The previous step successfully attempted to log in by filling in the email and password fields and clicking the sign-in button, but the result was an incomplete state suggesting the process stalled.
+INFO     [Agent]   🧠 Memory: The agent successfully navigated to the login page and attempted to input the email and password, but the result showed that the login process stalled after the password entry, suggesting the login failed or the page is still loading. The next 
+step should be to wait for the Knowledge Base to load completely.
+INFO     [Agent]   🎯 Next goal: Wait for the Knowledge Base to load completely after the login attempt.
+INFO     [Agent]   ▶️   click: index: 10
+WARNING  [BrowserSession] Could not get element geometry from any method, falling back to JavaScript click
+INFO     [tools] 🖱️ Clicked button "Sign in"
+WARNING  [bubus] ⚠️ EventBus_168d7d0c🟢(⏳ 0 | ▶️ 2 | ✅ 30 ➡️ 31 👂) handler browser_use.browser.watc hdog_base.DOMWatchdog.on_BrowserStateRequestEvent() has been running for >15s on event. Possible slow processing or deadlock.
+(handler could be trying to await its own result or could be blocked by another async task).
+browser_use.browser.watchdog_base.DOMWatchdog.on_BrowserStateRequestEvent(?▶ BrowserStateRequestEvent#ca8a 🏃)
+WARNING  [bubus] ⚠️ EventBus_168d7d0c🟢(⏳ 0 | ▶️ 2 | ✅ 30 ➡️ 31 👂) handler browser_use.browser.watc hdog_base.ScreenshotWatchdog.on_ScreenshotEvent() has been running for >15s on event. Possible slow processing or deadlock.
+(handler could be trying to await its own result or could be blocked by another async task).
+browser_use.browser.watchdog_base.ScreenshotWatchdog.on_ScreenshotEvent(?▶ ScreenshotEvent#03eb 🏃)
+WARNING  [bubus] ================================================================================
+WARNING  [bubus] ⏱️  TIMEOUT ERROR - Handling took more than 15.0s for EventBus_168d7d0c.browser_use.browser.watchdog_base.ScreenshotWatc
+hdog.on_ScreenshotEvent(?▶ ScreenshotEvent#03eb ✅)
+WARNING  [bubus] ================================================================================
+WARNING  [bubus] 📣 BrowserStateRequestEvent#ca8a                                       15s
+WARNING  [bubus]    ☑️ browser_use.browser.watchdog_base.DownloadsWatchdog.on_BrowserStateRequestEvent(#ca8a)     0s/30s   ✓
+WARNING  [bubus]       📣 NavigationCompleteEvent#d9b2                                  15s
+WARNING  [bubus]          ☑️ browser_use.browser.watchdog_base.DownloadsWatchdog.on_NavigationCompleteEvent(#d9b2)     0s/30s   ✓        
+WARNING  [bubus]          ☑️ browser_use.browser.watchdog_base.SecurityWatchdog.on_NavigationCompleteEvent(#d9b2)     0s/30s   ✓
+WARNING  [bubus]    ➡️ browser_use.browser.watchdog_base.DOMWatchdog.on_BrowserStateRequestEvent(#ca8a) ⏳ 15s/30s
+WARNING  [bubus]       📣 ScreenshotEvent#03eb                                          15s
+WARNING  [bubus]          ⏰ browser_use.browser.watchdog_base.ScreenshotWatchdog.on_ScreenshotEvent(#03eb) ⌛️ 15s/15s   ⬅️ TIMEOUT HERE ⏰
+WARNING  [bubus]
+================================================================================
+
+WARNING  [BrowserSession] 📸 Clean screenshot timed out after 6 seconds - no handler registered or slow page?
+ERROR    [BrowserSession] Exception in background task [capture_screenshot]: TimeoutError: Event handler browser_use.browser.watchdog_base.ScreenshotWatchdog.on_ScreenshotEvent#3472(?▶ ScreenshotEvent#03eb 🏃) timed out after 15.0s
+Traceback (most recent call last):
+  File "D:\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\browser\watchdog_base.py", line 153, in unique_handler
+    result = await actual_handler(event)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\observability.py", line 73, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\browser\watchdogs\screenshot_watchdog.py", line 78, in on_ScreenshotEvent
+    result = await cdp_session.cdp_client.send.Page.captureScreenshot(params=params, session_id=cdp_session.session_id)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\cdp_use\cdp\page\library.py", line 137, in captureScreenshot
+    await self._client.send_raw(
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\browser\_cdp_timeout.py", line 115, in send_raw
+    return await asyncio.wait_for(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\cdp_use\client.py", line 389, in send_raw
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\service.py", line 1128, in execute_handler
+    result_value: Any = await asyncio.wait_for(handler_task, timeout=event_result.timeout)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\asyncio\tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\utils.py", line 450, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\observability.py", line 73, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\browser\watchdogs\dom_watchdog.py", line 700, in _capture_clean_screenshot
+    screenshot_b64 = await screenshot_event.event_result(raise_if_any=True, raise_if_none=True)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\models.py", line 574, in event_result
+    valid_results = await self.event_results_filtered(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\models.py", line 516, in event_results_filtered
+    raise original_error
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\models.py", line 490, in event_results_filtered
+    await event_result
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\models.py", line 889, in wait_for_handler_to_complete_and_return_result     
+    raise self.error if isinstance(self.error, BaseException) else Exception(self.error)  # pyright: ignore[reportUnnecessaryIsInstance] 
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\service.py", line 1070, in _execute_handlers
+    await self.execute_handler(event, handler, timeout=timeout)
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\service.py", line 1194, in execute_handler
+    raise handler_timeout_error from e
+TimeoutError: Event handler browser_use.browser.watchdog_base.ScreenshotWatchdog.on_ScreenshotEvent#3472(?▶ ScreenshotEvent#03eb 🏃) timed out after 15.0s
+WARNING  [BrowserSession] 🔍 DOMWatchdog.on_BrowserStateRequestEvent: Clean screenshot failed: Event handler browser_use.browser.watchdog_base.ScreenshotWatchdog.on_ScreenshotEvent#3472(?▶ ScreenshotEvent#03eb 🏃) timed out after 15.0s
+INFO     [Agent]
+
+INFO     [Agent] 📍 Step 5:
+INFO     [Agent] 📋 Exploration nudge injected after 5 steps without a plan
+WARNING  [cdp_use.client] Received duplicate response for request 464 - ignoring
+ERROR    [Agent] ⏰ Step 5 timed out after 180 seconds
+WARNING  [bubus] ⚠️ EventBus_168d7d0c🟢(⏳ 0 | ▶️ 2 | ✅ 33 ➡️ 31 👂) handler browser_use.browser.watc hdog_base.DOMWatchdog.on_BrowserStateRequestEvent() has been running for >15s on event. Possible slow processing or deadlock.
+(handler could be trying to await its own result or could be blocked by another async task).
+browser_use.browser.watchdog_base.DOMWatchdog.on_BrowserStateRequestEvent(?▶ BrowserStateRequestEvent#4dc2 🏃)
+WARNING  [bubus] ⚠️ EventBus_168d7d0c🟢(⏳ 0 | ▶️ 2 | ✅ 33 ➡️ 31 👂) handler browser_use.browser.watc hdog_base.ScreenshotWatchdog.on_ScreenshotEvent() has been running for >15s on event. Possible slow processing or deadlock.
+(handler could be trying to await its own result or could be blocked by another async task).
+browser_use.browser.watchdog_base.ScreenshotWatchdog.on_ScreenshotEvent(?▶ ScreenshotEvent#73c9 🏃)
+WARNING  [bubus] ================================================================================
+WARNING  [bubus] ⏱️  TIMEOUT ERROR - Handling took more than 15.0s for EventBus_168d7d0c.browser_use.browser.watchdog_base.ScreenshotWatc
+hdog.on_ScreenshotEvent(?▶ ScreenshotEvent#73c9 ✅)
+WARNING  [bubus] ================================================================================
+WARNING  [bubus] 📣 BrowserStateRequestEvent#4dc2                                       15s
+WARNING  [bubus]    ☑️ browser_use.browser.watchdog_base.DownloadsWatchdog.on_BrowserStateRequestEvent(#4dc2)     0s/30s   ✓
+WARNING  [bubus]       📣 NavigationCompleteEvent#b63e                                  15s
+WARNING  [bubus]          ☑️ browser_use.browser.watchdog_base.DownloadsWatchdog.on_NavigationCompleteEvent(#b63e)     0s/30s   ✓        
+WARNING  [bubus]          ☑️ browser_use.browser.watchdog_base.SecurityWatchdog.on_NavigationCompleteEvent(#b63e)     0s/30s   ✓
+WARNING  [bubus]    ➡️ browser_use.browser.watchdog_base.DOMWatchdog.on_BrowserStateRequestEvent(#4dc2) ⏳ 15s/30s
+WARNING  [bubus]       📣 ScreenshotEvent#73c9                                          15s
+WARNING  [bubus]          ⏰ browser_use.browser.watchdog_base.ScreenshotWatchdog.on_ScreenshotEvent(#73c9) ⌛️ 15s/15s   ⬅️ TIMEOUT HERE ⏰
+WARNING  [bubus]
+================================================================================
+
+WARNING  [BrowserSession] 📸 Clean screenshot timed out after 6 seconds - no handler registered or slow page?
+ERROR    [BrowserSession] Exception in background task [capture_screenshot]: TimeoutError: Event handler browser_use.browser.watchdog_base.ScreenshotWatchdog.on_ScreenshotEvent#3472(?▶ ScreenshotEvent#73c9 🏃) timed out after 15.0s
+Traceback (most recent call last):
+  File "D:\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\browser\watchdog_base.py", line 153, in unique_handler
+    result = await actual_handler(event)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\observability.py", line 73, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\browser\watchdogs\screenshot_watchdog.py", line 78, in on_ScreenshotEvent
+    result = await cdp_session.cdp_client.send.Page.captureScreenshot(params=params, session_id=cdp_session.session_id)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\cdp_use\cdp\page\library.py", line 137, in captureScreenshot
+    await self._client.send_raw(
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\browser\_cdp_timeout.py", line 115, in send_raw
+    return await asyncio.wait_for(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\cdp_use\client.py", line 389, in send_raw
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\service.py", line 1128, in execute_handler
+    result_value: Any = await asyncio.wait_for(handler_task, timeout=event_result.timeout)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\asyncio\tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\utils.py", line 450, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\observability.py", line 73, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\browser_use\browser\watchdogs\dom_watchdog.py", line 700, in _capture_clean_screenshot
+    screenshot_b64 = await screenshot_event.event_result(raise_if_any=True, raise_if_none=True)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\models.py", line 574, in event_result
+    valid_results = await self.event_results_filtered(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\models.py", line 516, in event_results_filtered
+    raise original_error
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\models.py", line 490, in event_results_filtered
+    await event_result
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\models.py", line 889, in wait_for_handler_to_complete_and_return_result     
+    raise self.error if isinstance(self.error, BaseException) else Exception(self.error)  # pyright: ignore[reportUnnecessaryIsInstance] 
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\service.py", line 1070, in _execute_handlers
+    await self.execute_handler(event, handler, timeout=timeout)
+  File "D:\Programs\Python\Python312\Lib\site-packages\bubus\service.py", line 1194, in execute_handler
+    raise handler_timeout_error from e
+TimeoutError: Event handler browser_use.browser.watchdog_base.ScreenshotWatchdog.on_ScreenshotEvent#3472(?▶ ScreenshotEvent#73c9 🏃) timed out after 15.0s
+WARNING  [BrowserSession] 🔍 DOMWatchdog.on_BrowserStateRequestEvent: Clean screenshot failed: Event handler browser_use.browser.watchdog_base.ScreenshotWatchdog.on_ScreenshotEvent#3472(?▶ ScreenshotEvent#73c9 🏃) timed out after 15.0s
+INFO     [Agent] 
+
+INFO     [Agent] 📍 Step 6:
+INFO     [Agent] 📋 Exploration nudge injected after 6 steps without a plan
+WARNING  [cdp_use.client] Received duplicate response for request 559 - ignoring
+ERROR    [Agent] ⏰ Step 6 timed out after 180 seconds
+ERROR    [Agent] ❌ Stopping due to 1 consecutive failures
+INFO     [Agent] 
+INFO     [Agent] Did the Agent not work as expected? Let us fix this!
+INFO     [Agent]    Open a short issue on GitHub: https://github.com/browser-use/browser-use/issues
+INFO     [BrowserSession] 📢 on_BrowserStopEvent - Calling reset() (force=True, keep_alive=None)
+INFO     [BrowserSession] [SessionManager] Cleared all owned data (targets, sessions, mappings)
+INFO     [BrowserSession] ✅ Browser session reset complete
+INFO     [BrowserSession] ✅ Browser session reset complete
+2026-07-01 15:54:11,679 | ERROR    | ❌ [FAILED] 01_LOGIN_PRECONDITION bị dừng giữa chừng.
+ERROR    [CheckConflictsTest] ❌ [FAILED] 01_LOGIN_PRECONDITION bị dừng giữa chừng.
+2026-07-01 15:54:13,689 | INFO     | 🚀 [RUNNING] Test Case: 02_BUTTON_CHECK_POSITION
+INFO     [CheckConflictsTest] 🚀 [RUNNING] Test Case: 02_BUTTON_CHECK_POSITION
+INFO     [Agent] 🎯 Task: 
+            Đảm bảo trình duyệt đang ở giao diện màn hình Knowledge Base sau khi đã đăng nhập thành công.
+            Tìm xem ở khu vực góc trên bên phải màn hình có nút mang tên 'Check conflicts' hay 'Kiểm tra xung đột' không.
+            Nếu có, hãy trả về kết quả có chữ 'SUCCESS'.
+
+INFO     [Agent] Starting a browser-use agent with version 0.13.1, with provider=ollama and model=gemma4:e2b
+WARNING  [Agent] ❌ Result failed 1/2 times: Expected at least one handler to return a non-None result, but none did! ?▶ BrowserStateReque
+stEvent#e264 ✅ -> {}
+ERROR    [Agent] ❌ Result failed 2/2 times: Expected at least one handler to return a non-None result, but none did! ?▶ BrowserStateReque
+stEvent#8afb ✅ -> {}
+ERROR    [Agent] ❌ Stopping due to 1 consecutive failures
+INFO     [Agent] 
+INFO     [Agent] Did the Agent not work as expected? Let us fix this!
+INFO     [Agent]    Open a short issue on GitHub: https://github.com/browser-use/browser-use/issues
+INFO     [BrowserSession] ✅ Browser session reset complete
+2026-07-01 15:54:15,118 | ERROR    | ❌ [FAILED] 02_BUTTON_CHECK_POSITION bị dừng giữa chừng.
+ERROR    [CheckConflictsTest] ❌ [FAILED] 02_BUTTON_CHECK_POSITION bị dừng giữa chừng.
+2026-07-01 15:54:17,132 | INFO     | 🚀 [RUNNING] Test Case: 03_PERFORM_SCAN_FULL_SCOPE
+INFO     [CheckConflictsTest] 🚀 [RUNNING] Test Case: 03_PERFORM_SCAN_FULL_SCOPE
+INFO     [Agent] 🎯 Task: 
+            Tại giao diện Knowledge Base, hãy chắc chắn KHÔNG tích chọn bất kỳ ô checkbox nào của các file.
+            Nhấn thẳng trực tiếp vào nút 'Check conflicts' hoặc 'Kiểm tra xung đột'.
+            Xác nhận xem hệ thống có bắt đầu tiến trình quét toàn bộ file hay không.
+
+INFO     [Agent] Starting a browser-use agent with version 0.13.1, with provider=ollama and model=gemma4:e2b
+WARNING  [Agent] ❌ Result failed 1/2 times: Expected at least one handler to return a non-None result, but none did! ?▶ BrowserStateReque
+stEvent#f31a ✅ -> {}
+ERROR    [Agent] ❌ Result failed 2/2 times: Expected at least one handler to return a non-None result, but none did! ?▶ BrowserStateReque
+stEvent#967b ✅ -> {}
+ERROR    [Agent] ❌ Stopping due to 1 consecutive failures
+INFO     [Agent] 
+INFO     [Agent] Did the Agent not work as expected? Let us fix this!
+INFO     [Agent]    Open a short issue on GitHub: https://github.com/browser-use/browser-use/issues
+INFO     [BrowserSession] ✅ Browser session reset complete
+2026-07-01 15:54:17,964 | ERROR    | ❌ [FAILED] 03_PERFORM_SCAN_FULL_SCOPE bị dừng giữa chừng.
+ERROR    [CheckConflictsTest] ❌ [FAILED] 03_PERFORM_SCAN_FULL_SCOPE bị dừng giữa chừng.
+2026-07-01 15:54:19,977 | INFO     | ================================================================================
+h động và bị ngắt giữa chừng)
+2026-07-01 15:54:19,978 | INFO     | 02_BUTTON_CHECK_POSITION       → FAIL (Agent chưa hoàn thành chuỗi hành động và bị ngắt giữa chừng) 
+INFO     [CheckConflictsTest] 02_BUTTON_CHECK_POSITION       → FAIL (Agent chưa hoàn thành chuỗi hành động và bị ngắt giữa chừng)        
+2026-07-01 15:54:19,978 | INFO     | 03_PERFORM_SCAN_FULL_SCOPE     → FAIL (Agent chưa hoàn thành chuỗi hành động và bị ngắt giữa chừng) 
+INFO     [CheckConflictsTest] 03_PERFORM_SCAN_FULL_SCOPE     → FAIL (Agent chưa hoàn thành chuỗi hành động và bị ngắt giữa chừng)        
+2026-07-01 15:54:19,979 | INFO     | ================================================================================
+INFO     [CheckConflictsTest] ================================================================================
+INFO     [BrowserSession] ✅ Browser session reset complete
+PS D:\work\ai\vsf\test>
